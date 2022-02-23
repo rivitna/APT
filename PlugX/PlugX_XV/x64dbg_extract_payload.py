@@ -76,18 +76,16 @@ payload_addr = x64dbg.ReadPtr(addr + 8)
 payload_size = x64dbg.ReadPtr(addr + 12)
 print('Payload address: %08X' % payload_addr)
 print('Payload size: %d' % payload_size)
-
 x64dbg.StepOut()
-
 x64dbg_save_data(dest_dir, 'payload.dll_', payload_addr, payload_size)
 
-# Get entry point address
+# Get payload entry point address
 ep_addr = x64dbg_get_ep_addr(payload_addr)
 if ep_addr == 0:
     raise Exception('Couldn\'t get payload entry point address.')
 print('Payload entry point address: %08X' % ep_addr)
 
-# Write int 3 to entry point
+# Write int 3 to payload entry point
 x64dbg.WriteByte(ep_addr, 0xCC)
 
 Run()
