@@ -15,10 +15,8 @@ XXXX
 ----
 McUtil.dll/McUtil.dll.url
 
-
 IP
 --
 NvSmartMax.dll/boot.ldr
-
 
 msvsct.exe/msvsct.ini
