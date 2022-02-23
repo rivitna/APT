@@ -57,7 +57,7 @@ def x64dbg_get_ep_addr(mod_addr):
 
 dest_dir = os.path.abspath(os.path.dirname(__file__))
 
-Run()
+x64dbg.Run()
 
 # Break on RtlDecompressBuffer
 addr = ResolveLabel('RtlDecompressBuffer')
@@ -88,7 +88,7 @@ print('Payload entry point address: %08X' % ep_addr)
 # Write int 3 to payload entry point
 x64dbg.WriteByte(ep_addr, 0xCC)
 
-Run()
+x64dbg.Run()
 
 addr = x64dbg.GetESP()
 payload_base = x64dbg.ReadPtr(addr + 4)
